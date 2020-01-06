@@ -1,0 +1,33 @@
+package org.test.phptravels.page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.CommonMethods;
+
+public class Login extends Browser{
+
+	public Login(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	
+	CommonMethods cm = new CommonMethods();
+	
+	/* ================================= Page Elements ================================= */
+
+	public WebElement elementMyAccount() {
+
+		return cm.findElementByXpath(driver, "//span[text()='Search by Hotel or City Name']");
+		//return cm.findElementByXpath(driver, "//div[@id='s2id_autogen1']");
+	}
+	
+	//a[@id='dropdownCurrency']/text()[2]
+	
+	/* ==================================== Actions ==================================== */
+	
+	
+	
+	
+
+}

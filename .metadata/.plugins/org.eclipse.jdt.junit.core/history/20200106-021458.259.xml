@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRun" project="phptravels" tests="10" started="10" failures="2" errors="0" ignored="5">
+  <testsuite name="testrunner.TestRun" time="11.089">
+    <testsuite name="Feature: Search for hotels on phptravels portal as a guest user" time="6.88">
+      <testsuite name="Scenario: Guest user searches for hotels" time="6.88">
+        <testcase name="Given Open the application as guest user" classname="Scenario: Guest user searches for hotels" time="1.649"/>
+        <testcase name="When I populate all mandatory fields" classname="Scenario: Guest user searches for hotels" time="3.113"/>
+        <testcase name="And click on Search button" classname="Scenario: Guest user searches for hotels" time="2.116"/>
+        <testcase name="Then All hotel results should get returned for guest user" classname="Scenario: Guest user searches for hotels" time="0.002"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature: Search for hotels on phptravels portal as a registered user" time="0.334">
+      <testsuite name="Scenario: Registered user searches for hotels" time="0.004" incomplete="true">
+        <failure>java.lang.AssertionError: expected [PHPTRAVELS | Travel Technology Partner] but found [www.phptravels.net]&#13;
+	at org.testng.Assert.fail(Assert.java:94)&#13;
+	at org.testng.Assert.failNotEquals(Assert.java:494)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:123)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:176)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:186)&#13;
+	at stepdefinitions.TC02.open_the_application_as_registered_user(TC02.java:43)&#13;
+	at ✽.Given Open the application as registered user(TC02_RegisteredUser_HotelSearch.feature:6)&#13;
+&#13;
+</failure>
+        <testcase name="Given Open the application as registered user" classname="Scenario: Registered user searches for hotels" time="0.003">
+          <failure>java.lang.AssertionError: expected [PHPTRAVELS | Travel Technology Partner] but found [www.phptravels.net]&#13;
+	at org.testng.Assert.fail(Assert.java:94)&#13;
+	at org.testng.Assert.failNotEquals(Assert.java:494)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:123)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:176)&#13;
+	at org.testng.Assert.assertEquals(Assert.java:186)&#13;
+	at stepdefinitions.TC02.open_the_application_as_registered_user(TC02.java:43)&#13;
+	at ✽.Given Open the application as registered user(TC02_RegisteredUser_HotelSearch.feature:6)&#13;
+&#13;
+</failure>
+        </testcase>
+        <testcase name="When I go to Login screen" classname="Scenario: Registered user searches for hotels" time="0.002" ignored="true"/>
+        <testcase name="And enter valid credentials and click on Login button" classname="Scenario: Registered user searches for hotels" time="0.002" ignored="true"/>
+        <testcase name="Then Account screen should appear" classname="Scenario: Registered user searches for hotels" time="0.001" ignored="true"/>
+        <testcase name="When I go to home screen and search for hotel" classname="Scenario: Registered user searches for hotels" time="0.001" ignored="true"/>
+        <testcase name="Then All hotel results should get returned for registered user" classname="Scenario: Registered user searches for hotels" time="0.318" ignored="true"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

@@ -1,0 +1,13 @@
+package org.test.phptravels.page;
+
+import org.openqa.selenium.WebDriver;
+import org.test.phptravels.base.Browser;
+
+public class Login extends Browser{
+
+	public Login(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+}

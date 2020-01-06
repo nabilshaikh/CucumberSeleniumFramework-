@@ -1,0 +1,74 @@
+package org.test.phptravels.page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.CommonMethods;
+
+public class Index extends Browser{
+
+	public Index(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	
+	CommonMethods cm = new CommonMethods();
+	WebDriverWait wait = new WebDriverWait(driver, 20);
+	
+	/* ================================= Page Elements ================================= */
+	
+	public WebElement clickDestination() {
+		
+		return cm.findElementByXpath(driver, "//span[text()='Search by Hotel or City Name']");
+		//return cm.findElementByXpath(driver, "//div[@id='s2id_autogen1']");
+	}
+	
+	public WebElement getDestination(){
+
+		return cm.findElementByXpath(driver, "//div[@id='select2-drop']/div/input");
+	}
+
+	public WebElement getCheckIn(){
+
+		return cm.findElementByXpath(driver, "//input[@id='checkin']");
+	}
+
+	public WebElement getCheckOut(){
+
+		return cm.findElementByXpath(driver, "//input[@id='checkout']");
+	}
+
+	public WebElement getAdults(){
+
+		return cm.findElementByXpath(driver, "//input[@name='adults']");
+	}
+	
+	public WebElement getChild(){
+
+		return cm.findElementByXpath(driver, "//input[@class='firstname']");
+	}
+
+	
+	/* ==================================== Actions ==================================== */
+	
+	public void enterDestination(String inputdest){
+		
+		wait.until(ExpectedConditions.visibilityOf(clickDestination())).click();
+		WebElement enterdest = getDestination();
+		cm.enterText(driver, enterdest, inputdest);
+		WebElement element = cm.findElementByXpath(driver, "//div[@id='select2-drop']/ul/li/ul/li");
+		cm.click(driver, element);		
+	}
+	
+	public void enterCheckIn(String inputcheckin){
+		
+		WebElement checkin = getCheckIn();
+		cm.enterText(driver, checkin, inputcheckin);				
+	}
+	
+	
+	
+
+}

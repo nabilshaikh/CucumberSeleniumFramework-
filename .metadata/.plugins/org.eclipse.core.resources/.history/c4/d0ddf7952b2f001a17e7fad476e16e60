@@ -1,0 +1,27 @@
+package testrunner;
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features="Features",
+			     glue={"stepdefinitions"},
+			     plugin= {"pretty"},
+			     dryRun=false,
+			     monochrome=true
+				 )
+
+public class TestRun {
+	
+	@Before
+    public void beforeScenario(){
+        System.out.println("This will run before the Scenario");
+    } 
+ 
+ @After
+    public void afterScenario(){
+        System.out.println("This will run after the Scenario");
+    }
+}

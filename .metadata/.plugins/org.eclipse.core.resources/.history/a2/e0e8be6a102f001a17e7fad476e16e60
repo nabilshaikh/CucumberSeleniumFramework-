@@ -1,0 +1,15 @@
+#Author: nabilshaikh26@gmail.com
+
+Feature: Title of your feature
+
+  Scenario: Search for hotel by populating every field 
+    Given Open the application
+    When I go to Login screen
+    	And enter valid credentials and click on Login button
+    	And click on Login button
+    Then Account screen should appear	 	 
+    When I go to hotel search screen and populate all mandatory fields 
+    	And click on Search button
+    Then All hotel results should get returned present within the vicinity
+
+    

@@ -1,0 +1,113 @@
+package org.test.phptravels.page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.CommonMethods;
+
+public class Home extends Browser{
+
+	public Home(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	
+	CommonMethods cm = new CommonMethods();
+	WebDriverWait wait = new WebDriverWait(driver, 20);
+	
+	/* ================================= Page Elements ================================= */
+	
+	public WebElement clickDestination() {
+		
+		return cm.findElementByXpath(driver, "//span[text()='Search by Hotel or City Name']");
+		//return cm.findElementByXpath(driver, "//div[@id='s2id_autogen1']");
+	}
+	
+	public WebElement elementDestination(){
+
+		return cm.findElementByXpath(driver, "//div[@id='select2-drop']/div/input");
+	}
+
+	public WebElement elementCheckIn(){
+
+		return cm.findElementByXpath(driver, "//input[@id='checkin']");
+	}
+
+	public WebElement elementCheckOut(){
+
+		return cm.findElementByXpath(driver, "//input[@id='checkout']");
+	}
+
+	public WebElement elementAdults(){
+
+		return cm.findElementByXpath(driver, "//input[@name='adults']");
+	}
+	
+	public WebElement elementChild(){
+
+		return cm.findElementByXpath(driver, "//input[@name='children']");
+	}
+	
+	public WebElement elementSearch(){
+
+		return cm.findElementByXpath(driver, "//button[contains(text(), 'Search') and @type='submit']");
+	}
+	
+	public WebElement elementMyAccount() {
+
+		return cm.findElementByXpath(driver, "//a[@id='dropdownCurrency']/text()[2]");
+	}
+	
+	public WebElement elementLogin() {
+
+		return cm.findElementByXpath(driver, "//a[text()='Login']");
+	}
+
+	
+	/* ==================================== Actions ==================================== */
+	
+	public void enterDestination(String inputdest){
+		
+		wait.until(ExpectedConditions.visibilityOf(clickDestination())).click();
+		WebElement enterdest = elementDestination();
+		cm.enterText(driver, enterdest, inputdest);
+		WebElement element = cm.findElementByXpath(driver, "//div[@id='select2-drop']/ul/li/ul/li");
+		cm.click(driver, element);		
+	}
+	
+	public void enterCheckIn(String inputcheckin){
+		
+		WebElement checkin = elementCheckIn();
+		cm.enterText(driver, checkin, inputcheckin);				
+	}
+	
+	public void enterCheckOut(String inputcheckout){
+
+		WebElement checkout = elementCheckOut();
+		cm.enterText(driver, checkout, inputcheckout);		
+	}
+	
+	public void clickSearch(){
+
+		WebElement searchbtn = elementSearch();
+		cm.click(driver, searchbtn);	
+	}
+	
+	public void clickMyAccount() {
+		
+		WebElement myaccount = elementMyAccount();
+		cm.click(driver, myaccount);
+	}
+
+	public void clickLogin() {
+
+		WebElement login = elementLogin();
+		cm.click(driver, login);
+	}
+	
+	
+	
+
+}

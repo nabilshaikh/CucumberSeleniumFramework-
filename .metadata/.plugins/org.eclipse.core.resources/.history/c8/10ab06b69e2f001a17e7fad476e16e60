@@ -1,0 +1,31 @@
+package org.test.phptravels.base;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.test.phptravels.helper.PropertiesFile;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
+public class Hooks {
+	
+	public static WebDriver driver;
+	String url;
+	Browser browser = new Browser(null);
+	
+	@Before
+	public void openBrowser() throws IOException{
+		
+		driver = browser.getDriver();
+		url = PropertiesFile.getProperty("app_url");
+		browser.launchApplication(driver, url);
+	} 
+
+	@After
+	public void closeBrowser(){
+		
+		driver.close();
+	}
+
+}

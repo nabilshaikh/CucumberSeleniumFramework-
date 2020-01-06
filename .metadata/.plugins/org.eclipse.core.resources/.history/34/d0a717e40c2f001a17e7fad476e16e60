@@ -1,0 +1,56 @@
+package org.test.phptravels.page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.CommonMethods;
+
+public class Login extends Browser{
+
+	public Login(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	
+	CommonMethods cm = new CommonMethods();
+	
+	/* ================================= Page Elements ================================= */
+
+	public WebElement elementEmail() {
+
+		return cm.findElementByXpath(driver, "//input[@name='username']");
+	}
+	
+	public WebElement elementPassword() {
+
+		return cm.findElementByXpath(driver, "//input[@name='password']");
+	}	
+
+	public WebElement elementLoginButton() {
+
+		return cm.findElementByXpath(driver, "//button[text()='Login']");
+	}	
+	
+	/* ==================================== Actions ==================================== */
+	
+	
+	public void enterEmail(String inputemail) {
+		
+		WebElement email = elementEmail();
+		cm.enterText(driver, email, inputemail);
+	}
+
+	public void enterPassword(String inputpassword) {
+
+		WebElement password = elementPassword();
+		cm.enterText(driver, password, inputpassword);
+	}
+	
+	public void clickLoginButton() {
+
+		WebElement password = elementPassword();
+		cm.enterText(driver, password, inputpassword);
+	}
+	
+
+}

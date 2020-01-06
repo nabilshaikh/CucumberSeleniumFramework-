@@ -1,0 +1,15 @@
+#Author: nabilshaikh26@gmail.com
+
+Feature: Search for hotels on phptravels portal as a registered user
+
+	Scenario: Registered user searches for hotels
+    Given Open the application as registered user
+    When I go to Login screen
+    	And enter valid credentials and click on Login button
+    Then Account screen should appear	 	 
+    When I go to home screen and search for hotel
+    Then All hotel results should get returned for registered user
+
+  	
+
+    

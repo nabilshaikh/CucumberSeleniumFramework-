@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRun" project="phptravels" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="testrunner.TestRun" time="25.887">
+    <testsuite name="Feature: Search for hotels on phptravels portal as a guest user" time="6.336">
+      <testsuite name="Scenario: Guest user searches for hotels" time="6.336">
+        <testcase name="Given Open the application as guest user" classname="Scenario: Guest user searches for hotels" time="1.948"/>
+        <testcase name="When I populate all mandatory fields" classname="Scenario: Guest user searches for hotels" time="2.272"/>
+        <testcase name="And click on Search button" classname="Scenario: Guest user searches for hotels" time="2.114"/>
+        <testcase name="Then All hotel results should get returned for guest user" classname="Scenario: Guest user searches for hotels" time="0.002"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature: Search for hotels on phptravels portal as a registered user" time="13.07">
+      <testsuite name="Scenario: Registered user searches for hotels" time="13.07">
+        <testcase name="Given Open the application as registered user" classname="Scenario: Registered user searches for hotels" time="2.208"/>
+        <testcase name="When I go to Login screen" classname="Scenario: Registered user searches for hotels" time="0.616"/>
+        <testcase name="And enter valid credentials and click on Login button" classname="Scenario: Registered user searches for hotels" time="1.902"/>
+        <testcase name="Then Account screen should appear" classname="Scenario: Registered user searches for hotels" time="5.835"/>
+        <testcase name="When I go to home screen and search for hotel" classname="Scenario: Registered user searches for hotels" time="2.198"/>
+        <testcase name="Then All hotel results should get returned for registered user" classname="Scenario: Registered user searches for hotels" time="0.311"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

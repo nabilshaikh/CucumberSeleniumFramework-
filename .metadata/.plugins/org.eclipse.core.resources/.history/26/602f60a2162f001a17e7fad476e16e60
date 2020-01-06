@@ -1,0 +1,88 @@
+package stepdefinitions;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.PropertiesFile;
+import org.test.phptravels.page.Home;
+import org.test.phptravels.page.Login;
+import org.test.phptravels.page.MyAccount;
+import org.testng.Assert;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class TC03 {
+	
+	public static WebDriver driver;
+	String url;
+	Browser browser = new Browser(null);
+	Home home;
+	Login login;
+	MyAccount myaccount;
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	LocalDate localDate = LocalDate.now();
+
+	@When("^I go to Login screen$")
+	public void i_go_to_Login_screen() throws Throwable {
+		
+		home = PageFactory.initElements(driver, Home.class);
+		home.clickMyAccount();
+		home.clickLogin();
+	}
+
+	@When("^enter valid credentials and click on Login button$")
+	public void enter_valid_username_valid_password() throws Throwable {
+	    
+		Assert.assertEquals(driver.getTitle(), "Login");
+		login = PageFactory.initElements(driver, Login.class);
+		login.enterEmail("user@phptravels.com");
+		login.enterPassword("demouser");
+	}
+
+	@Then("^Account screen should appear$")
+	public void account_screen_should_appear() throws Throwable {
+	    
+		Assert.assertEquals(driver.getTitle(), "My Account");
+	}
+
+	@When("^I go to home screen and populate all mandatory fields$")
+	public void i_go_to_hotel_search_screen_and_populate_all_mandatory_fields() throws Throwable {
+	    
+		myaccount = PageFactory.initElements(driver, MyAccount.class);
+		myaccount.clickHomeMenu();
+		Assert.assertEquals(driver.getTitle(), "PHPTRAVELS | Travel Technology Partner");
+	}
+
+	
+	
+	@When("^I populate all mandatory fields$")
+	public void i_populate_all_mandatory_fields() throws Throwable {
+		
+		home = PageFactory.initElements(driver, Home.class);
+		home.enterDestination("mumbai");
+		home.enterCheckIn("04/01/2020");
+		home.enterCheckOut("04/01/2020");
+		
+	}
+
+	@And("^click on Search button$")
+	public void click_on_Search_button() throws Throwable {
+		
+		home.clickSearchButton();
+	}
+
+	@Then("^All hotel results should get returned present within the vicinity$")
+	public void all_hotels_should_get_returned_within_the_vicinity() throws Throwable {
+	    
+		Assert.assertEquals(driver.getTitle(), "Hotels Results");
+	}
+	
+}

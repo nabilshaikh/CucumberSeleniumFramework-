@@ -1,0 +1,26 @@
+package testrunner;
+
+import java.io.IOException;
+
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.PropertiesFile;
+import org.test.phptravels.page.Home;
+import org.testng.Assert;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features="Features",
+			     glue={"stepdefinitions"},
+			     plugin= {"pretty"},
+			     dryRun=false,
+			     monochrome=true
+				 )
+
+public class TestRun {}

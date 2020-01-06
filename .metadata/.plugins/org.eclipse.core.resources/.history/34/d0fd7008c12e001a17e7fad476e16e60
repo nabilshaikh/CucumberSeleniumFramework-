@@ -1,0 +1,8 @@
+package org.test.phptravels.base;
+
+public class Snippet {
+	public static void main(String[] args) {
+		org.test.phptravels.stepdefinitions
+	}
+}
+

@@ -1,0 +1,71 @@
+package stepdefinitions;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.test.phptravels.base.Browser;
+import org.test.phptravels.helper.PropertiesFile;
+import org.test.phptravels.page.Home;
+import org.test.phptravels.page.Login;
+import org.test.phptravels.page.MyAccount;
+import org.testng.Assert;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import testrunner.TestRun;
+
+public class TC01{
+	
+	public static WebDriver driver;
+	String url;
+	Browser browser = new Browser(null);
+	Home home;
+	Login login;
+	MyAccount myaccount;
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	LocalDate localDate = LocalDate.now();
+	
+	@Given ("^Open the application as guest user$")
+	public void open_the_application_as_a_guest_user() throws IOException, InterruptedException {
+		
+		driver = browser.getDriver();
+		url = PropertiesFile.getProperty("app_url");
+		browser.launchApplication(driver, url);
+		Assert.assertEquals(driver.getTitle(), "PHPTRAVELS | Travel Technology Partner");		
+	}
+	
+	@When("^I populate all mandatory fields$")
+	public void i_populate_all_mandatory_fields() throws Throwable {
+		
+		home = PageFactory.initElements(driver, Home.class);
+		home.enterDestination("mumbai");
+		home.enterCheckIn(dtf.format(localDate));
+		home.enterCheckOut(dtf.format(localDate));
+		
+	}
+
+	@And("^click on Search button$")
+	public void click_on_Ssearch_button() throws Throwable {
+		
+		home = PageFactory.initElements(driver, Home.class);
+		home.clickSearchButton();
+	}
+
+	@Then("^All hotel results should get returned present within the vicinity$")
+	public void all_hotels_should_get_returned_within_the_vicinity() throws Throwable {
+	    
+		Assert.assertEquals(driver.getTitle(), "Hotels Results");
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+#Author: nabilshaikh26@gmail.com
+
+Feature: Title of your feature
+
+  Scenario: Search for hotel by populating every field 
+    Given Open the application as a guest user
+    When I populate all mandatory fields 
+    	And Click on Search button
+    Then All hotels should get returned within the vicinity
+
+    

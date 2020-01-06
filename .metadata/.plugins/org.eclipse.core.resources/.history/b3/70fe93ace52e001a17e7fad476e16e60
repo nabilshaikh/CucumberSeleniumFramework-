@@ -1,0 +1,7 @@
+package org.test.phptravels.page;
+
+import org.test.phptravels.base.Browser;
+
+public class Login extends Browser{
+
+}

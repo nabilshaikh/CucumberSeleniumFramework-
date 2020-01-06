@@ -1,0 +1,13 @@
+#Author: nabilshaikh26@gmail.com
+
+Feature: Search for hotels on phptravels portal as a guest user
+
+  Scenario: Guest user searches for hotels 
+    Given Open the application as guest user
+    When I populate all mandatory fields 
+    And click on Search button
+    Then All hotel results should get returned present within the vicinity
+    
+  
+
+    

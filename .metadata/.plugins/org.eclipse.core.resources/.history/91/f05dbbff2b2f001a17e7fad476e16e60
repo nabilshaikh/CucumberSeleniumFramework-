@@ -1,0 +1,35 @@
+package testrunner;
+
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.test.phptravels.helper.PropertiesFile;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features="Features",
+			     glue={"stepdefinitions"},
+			     plugin= {"pretty"},
+			     dryRun=false,
+			     monochrome=true
+				 )
+
+public class TestRun {
+	
+	public static WebDriver driver;
+	
+	@Before
+	public void beforeScenario(){
+		driver = browser.getDriver();
+		url = PropertiesFile.getProperty("app_url");
+		browser.launchApplication(driver, url);
+	} 
+
+	@After
+	public void afterScenario(){
+		System.out.println("This will run after the Scenario");
+	}
+}
